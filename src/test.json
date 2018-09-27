@@ -1,0 +1,19 @@
+{
+    "invoiceNumber": "44",
+    "receivedDate": "2018-09-13T18:30:00.000Z",
+    "deliveryDate": "2018-09-17T18:30:00.000Z",
+    "otherDetails": "other details",
+    "purchaseOrderItems": [
+        {
+            "productId": "2",
+            "unitAmount": "99",
+            "unitPurchasePrice": "66"
+        },
+        {
+            "productId": "4",
+            "unitAmount": "55",
+            "unitPurchasePrice": "66"
+        }
+    ],
+    "supplierId": 3
+}

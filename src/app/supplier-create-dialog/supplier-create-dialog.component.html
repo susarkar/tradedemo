@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Add New Supplier</h2>
+<mat-dialog-content>
+<form class="example-form">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Supplier name" [(ngModel)] = 'model.name' name='name'>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="email" [(ngModel)]='model.email' name='email'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Phone" [(ngModel)]='model.phone' name='phone'>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Other details" [(ngModel)]='model.otherDetails' name='otherDetails'>
+  </mat-form-field>
+
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="save()">Save</button>
+  <button mat-raised-button (click)="cancel()">Cancel</button>
+</mat-dialog-actions>
+

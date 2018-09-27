@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-body">
+      <div class="container">
+          <div class="row">
+              <div class="col-6">
+                  <h5 class="card-title">Customers</h5>
+              </div>
+              <div class="col-3">
+                  <input type="text" placeholder="Filter Customer" class="form-control" (input)="filter($event.target.value)">
+              </div>
+              <div class="col-3">
+                      <button type="button" class="btn btn-primary btn-sm" (click)="openDialog()"><mat-icon>add</mat-icon></button>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                  <div class="table-responsive">
+                      <table class="table table-sm table-bordered table-striped">
+                          <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Email</th>
+                                  <th>Phone</th>
+                                  <th>Other Details</th>
+                                  <th class="actionrow">Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let item of customers">
+
+                                  <td >{{item.name}}</td>
+
+                                  <td >{{item.email}}</td>
+
+                                  <td >{{item.phone}}</td>
+
+                                  <td >{{item.otherDetails}}</td>
+                                  <td >
+                                      <button type="button" class="btn btn-primary btn-sm " (click)="openDialog(item)"><mat-icon>create</mat-icon></button>
+                                      <button type="button" class="btn btn-primary btn-sm " (click)="deleteItem(item)"><mat-icon>delete</mat-icon></button>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <input matInput class="d-inline" placeholder="Select Supplier" [matAutocomplete]="auto" [formControl]="autoSearch">
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let supplier of suppliers " [value]="supplier.name" (onSelectionChange)="onOptionSelected($event,supplier)">
+                <span>{{supplier.name}}</span>
+            </mat-option>
+        </mat-autocomplete>
+        <input type="button" value="New supplier" (click) = addSupplier()>
+<div *ngIf="supplierSelected">
+    <h4>Purchase Orders for Supplier</h4>
+        <table class="table table-sm table-bordered table-striped">         
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>InvoiceNumber</th>
+                    <th>Delivery Date</th>
+                    <th>Recive Date</th>
+                    <th>Other details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of purchaseOrders">
+                    <td>{{item.id}}</td>
+                    <td>{{item.invoiceNumber}}</td>
+                    <td>{{item.deliveryDate}}</td>
+                    <td>{{item.receivedDate}}</td>
+                    <td>{{item.otherDetails}}</td>
+                </tr>
+                <tr *ngIf="purchaseOrders.length <=0">
+                    <td colspan = "5">No Purchase orders for Supplier</td>
+                </tr>
+                <tr>
+                        <td colspan = "5"><input type="button" value="add" (click) = addPO()></td>
+                </tr>
+                   
+            </tbody>
+        </table>
+<h4>Items in the Purchase Order </h4 >  
+    <table class="table table-sm table-bordered table-striped">         
+        <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product name</th>
+                    <th>amount</th>
+                    <th>price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of poitems">
+                    <td>{{item.id}}</td>
+                    <td>{{item.item.product.name}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+     </mat-card-content>
+</mat-card>

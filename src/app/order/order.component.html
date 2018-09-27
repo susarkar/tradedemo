@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+            <h4>Order</h4>
+            <div class="row">
+                <div class="col">
+                    <div class="table-responsive">
+                        <form [formGroup]="orderForm">
+                            <div formArrayName="orderItemForms">
+                                <table class="table table-sm table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Amount</th>
+                                            <th>Price</th>
+                                            <th class="actionrow">Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr *ngFor="let item of orderForm.controls.orderItemForms.controls; let i=index;"
+                                            [formGroupName]="i">
+                                            <td>
+                                                    <input matInput class="form-control" [matAutocomplete]="auto" [formControl]="autoSearch">
+
+                                            <td> 
+                                                <input class="form-control" matInput formControlName="amount">
+                                           </td>
+                                            <td>
+                                                    <input class="form-control" matInput>
+                                            </td>
+                                            <td align="center">
+                                                <mat-icon class="middle">clear</mat-icon>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <mat-autocomplete #auto="matAutocomplete">
+                                        <mat-option *ngFor="let product of products " [value]="product.name" (onSelectionChange)="onOptionSelected($event,supplier)">
+                                            <span>{{product.name}}</span>
+                                        </mat-option>
+                                </mat-autocomplete>
+                                <button>
+                                    <mat-icon class="middle">add</mat-icon>
+                                </button>
+                            </div>
+                               <div class="form-group">
+                                    <label for="">Customer mobile</label>
+                                    <input type="text" name="" id="" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                
+                                    <label for="">Customer name</label>
+                                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                        placeholder="">
+                                     <div>
+                                    <label for="">Customer Address</label>
+                                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                        placeholder="">
+                                    </div>
+                                </div>
+
+
+                            <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Save &amp; Print </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

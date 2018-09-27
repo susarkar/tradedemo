@@ -1,0 +1,52 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Customer
+    </mat-panel-title>
+    <mat-panel-description>
+      Customer Information
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-card >
+      <mat-form-field>
+        <mat-select placeholder="Select Customers">
+          <mat-option *ngFor="let customer of customers" [value]="customer.id">
+            {{customer.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="First name">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Age">
+      </mat-form-field>
+  
+  
+  </mat-card>
+
+</mat-expansion-panel>
+<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Orders
+    </mat-panel-title>
+    <mat-panel-description>
+      Currently I am {{panelOpenState ? 'open' : 'closed'}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>Orders List</p>
+</mat-expansion-panel>
+
+<mat-expansion-panel [disabled]="isDisabled">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Selected Order Items
+    </mat-panel-title>
+    <mat-panel-description>
+      Currently I am {{panelOpenState ? 'open' : 'closed'}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>Selected Order items </p>
+</mat-expansion-panel>
