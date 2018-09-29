@@ -39,5 +39,7 @@ export class CompanyComponent implements OnInit {
     });
 
   }
-
+  testfun(){
+    console.log("Hello")
+  }
 }
