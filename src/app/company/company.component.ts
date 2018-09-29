@@ -40,6 +40,6 @@ export class CompanyComponent implements OnInit {
 
   }
   testfun(){
-    console.log("Hello")
+    console.log("Hello world")
   }
 }
